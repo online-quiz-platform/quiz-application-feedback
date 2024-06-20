@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quiz and Feedback Form</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="quiz-section" id="quizSection">
+      <button id="submitQuizButton">Submit Quiz</button>
+    </div>
+    <div class="popup" id="feedbackPopup">
+      <div class="popup-content">
+        <span class="close" id="closeFeedbackPopup">&times;</span>
+        <h2>Rate your experience</h2>
+        <p>
+          We highly value your feedback! Kindly take a moment to rate your
+          experience.
+        </p>
+        <form id="feedbackForm">
+          <div class="form-group">
+            <div class="star-rating" id="starRating">
+              <span class="star" data-value="1">&#9733;</span>
+              <span class="star" data-value="2">&#9733;</span>
+              <span class="star" data-value="3">&#9733;</span>
+              <span class="star" data-value="4">&#9733;</span>
+              <span class="star" data-value="5">&#9733;</span>
+            </div>
+            <input type="hidden" id="rating" name="rating" required />
+          </div>
+          <div class="form-group">
+            <label for="recommend">How likely are you to recommend us?</label>
+            <div class="number-circle" id="numberCircle">
+              <br />
+            </div>
+            <input type="hidden" id="recommend" name="recommend" required />
+          </div>
+          <div class="form-group">
+            <label id="commentsLabel" for="comments"
+              >Tell us about your experience!</label
+            >
+            <textarea
+              id="comments"
+              name="comments"
+              rows="4"
+              required
+            ></textarea>
+          </div>
+          <div class="form-buttons">
+            <button type="button" id="cancelButton" class="cancel-button">
+              Cancel
+            </button>
+            <button type="submit" class="send-button">Send</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div id="thankYouPopup" class="popup">
+      <div class="popup-content">
+        <span class="close" id="closeThankYouPopup">&times;</span>
+        <h2 class="thankYou">Thank You!</h2>
+        <p>Thank you for your feedback!</p>
+      </div>
+    </div>
+    <script src="jscript.js"></script>
+  </body>
+</html>
