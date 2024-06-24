@@ -57,7 +57,7 @@ body {
 }
 
 .popup-content h2.rate-experience {
-  animation: flash infinite;
+  animation: flash 2s;
 }
 
 @keyframes flash {
