@@ -13,7 +13,7 @@
     <div class="popup" id="feedbackPopup">
       <div class="popup-content">
         <span class="close" id="closeFeedbackPopup">&times;</span>
-        <h2>Rate your experience</h2>
+        <h2 class="rate-experience">Rate your Experience</h2>
         <p>
           We highly value your feedback! Kindly take a moment to rate your
           experience.
@@ -21,19 +21,17 @@
         <form id="feedbackForm">
           <div class="form-group">
             <div class="star-rating" id="starRating">
-              <span class="star" data-value="1">&#9733;</span>
-              <span class="star" data-value="2">&#9733;</span>
-              <span class="star" data-value="3">&#9733;</span>
-              <span class="star" data-value="4">&#9733;</span>
-              <span class="star" data-value="5">&#9733;</span>
+              <span class="star" data-value="1">&#9734;</span>
+              <span class="star" data-value="2">&#9734;</span>
+              <span class="star" data-value="3">&#9734;</span>
+              <span class="star" data-value="4">&#9734;</span>
+              <span class="star" data-value="5">&#9734;</span>
             </div>
             <input type="hidden" id="rating" name="rating" required />
           </div>
           <div class="form-group">
             <label for="recommend">How likely are you to recommend us?</label>
-            <div class="number-circle" id="numberCircle">
-              <br />
-            </div>
+            <div class="number-circle" id="numberCircle"></div>
             <input type="hidden" id="recommend" name="recommend" required />
           </div>
           <div class="form-group">

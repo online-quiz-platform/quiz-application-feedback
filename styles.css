@@ -1,9 +1,9 @@
 body {
   font-family: Arial, sans-serif;
-  background-color: white;
   color: black;
   margin: 0;
   padding: 0;
+  background-color: rgba(145, 209, 196);
 }
 
 .quiz-section {
@@ -19,17 +19,17 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: #fbfbfb;
+  background-color: white;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   padding: 20px;
   z-index: 1000;
-  width: 80%;
-  max-width: 500px;
+  width: 70%;
+  max-width: 450px;
 }
 
 #submitQuizButton {
-  background-color: rgb(0, 128, 113);
+  background-color: #008040;
   color: white;
   padding: 15px 25px;
   border: none;
@@ -52,8 +52,24 @@ body {
 }
 
 .popup-content h2 {
-  color: #333;
+  color: rgba(82, 179, 116);
   margin-bottom: 10px;
+}
+
+.popup-content h2.rate-experience {
+  animation: flash infinite;
+}
+
+@keyframes flash {
+  0%,
+  50%,
+  100% {
+    opacity: 1;
+  }
+  25%,
+  75% {
+    opacity: 0;
+  }
 }
 
 .popup-content p {
@@ -73,17 +89,40 @@ body {
 .form-group {
   margin: 20px 0;
 }
+.star-rating {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
 
 .star-rating .star {
   cursor: pointer;
-  font-size: 24px;
-  margin: 0 5px;
+  font-size: 30px;
+  color: transparent;
+  position: relative;
+  display: inline-block;
+  margin-right: 10px;
 }
 
-.star-rating .star.selected {
-  color: gold;
+.star-rating .star::before {
+  content: "☆";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: rgba(82, 179, 116);
 }
 
+.star-rating .star.selected::before,
+.star-rating .star.hover::before {
+  content: "★";
+  color: rgba(82, 179, 116);
+}
+
+.number-circle {
+  display: flex;
+  align-items: center;
+  margin-top: 15px;
+}
 .number-circle span {
   width: 30px;
   height: 30px;
@@ -92,48 +131,83 @@ body {
   border-radius: 50%;
   display: inline-block;
   cursor: pointer;
-  margin: 0 5px;
+  margin: 0 5px; /* Adjust spacing between numbers */
   background-color: #ccc;
+  transition: background-color 0.2s;
+  border: 2px solid transparent;
+}
+
+.number-circle span:hover {
+  background-color: #aaa; /* Hover background color */
 }
 
 .number-circle span.selected {
-  background-color: rgb(0, 128, 113);
+  background-color: rgba(82, 179, 116);
 }
 
+.number-circle span.selected,
+.number-circle span:hover {
+  border-color: rgba(82, 179, 116); /* Black border when selected or hovered */
+}
 #comments {
   width: 100%;
   padding: 8px;
-  margin-top: 5px;
+  margin-top: 10px;
   border-radius: 5px;
-  border: 1px solid #8c9187;
-  resize: vertical;
+  border: 2px solid black;
 }
 
-.form-buttons button {
-  padding: 8px 16px;
-  margin-right: 10px;
-  border: none;
-  cursor: pointer;
-  border-radius: 5px;
+.form-buttons {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
 }
 
 .cancel-button {
-  background-color: red;
-  color: #fff;
+  background-color: orangered;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-right: 10px;
 }
 
 .send-button {
-  background-color: rgb(0, 128, 113);
-  color: #fff;
+  background-color: #008040;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
-textarea {
-  width: 100%;
-  padding: 8px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-  resize: vertical;
+#commentsLabel {
+  display: block;
+  margin-bottom: 10px;
 }
-h2.thankYou {
-  color: rgb(0, 128, 113);
+
+@keyframes slideDown {
+  0% {
+    top: -100px;
+  }
+  100% {
+    top: 50%;
+  }
+}
+#thankYouPopup {
+  display: none;
+  position: fixed;
+  text-align: center;
+  top: -100px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  z-index: 1000;
+  width: 80%;
+  max-width: 300px;
+  animation: slideDown 1s forwards;
 }
